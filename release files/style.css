@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inconsolata:wght@200..900&display=swap');
+
+:root{
+    --background: #101114;
+    --primary-color: #1C1D20;
+    --secondary-color: #4A4D57;
+    --accent-color: #00FFC4;
+    --text-color: #F9F9F9;
+    --delete-button: #ff0033;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Inconsolata", monospace;
+    font-size: 16pt;
+    color: var(--text-color);
+}
+
+body {
+    min-height: 100hv;
+    padding: 10px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Fjalla One", sans-serif;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.wrapper {
+    width: 600px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-input {
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 100%;
+    background: none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10000px;
+    font:  inherit;
+    color: var(--text-color);
+    caret-color: var(--accent-color);
+    font-size: 0.8rem;
+}
+
+#todo-input:focus {
+    outline: none;
+}
+
+form {
+    position: relative;
+}
+
+#add-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    height: 100%;
+    padding: 0 30px;
+    border: none;
+    border-radius: 1000px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--background);
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.todo {
+    margin-bottom: 10px;
+    padding: 0 16px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.todo .todo-text {
+    padding: 15px;
+    padding-right: 0;
+    flex-grow: 1;
+    font-size: 0.8rem;
+    transition: 200ms ease;
+}
+
+.delete-button {
+    padding: 3px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-button svg {
+    transition: 200ms ease;
+}
+
+.delete-button:hover svg {
+    fill: var(--delete-button);
+    transform: scale(1.2);
+}
+
+.custom-checkbox{
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: 200ms ease;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox{
+    background-color: var(--accent-color);
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
+    fill: var(--primary-color);
+}
+
+input[type="checkbox"]:checked ~ .todo-text {
+    text-decoration: line-through;
+    color: var(--secondary-color);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+@media(max-width: 400px){
+    html {
+        font-size: 14pt;
+    }
+    #add-button {
+        position: unset;
+        width: 100%;
+        margin-top: 10px;
+        padding: 15px;
+        height: auto;
+    }
+    h1 {
+        margin-top: 70px;
+        font-size: 12vw;
+    }
+    
+}
+
+
+
+
+.theme-switcher {
+    margin: 15px;
+    position: fixed; /* или absolute, если нужно внутри контейнера */
+    top: 0;
+    right: 0;
+    z-index: 1000; 
+    text-align: right;
+}
+
+.theme-btn {
+    background-color: var(--accent-color);
+    color: var(--background);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 1000px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 500;
+}
+
+.theme-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.theme-dropdown {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color);
+    min-width: 100px;
+    box-shadow: 0 8px 16px rgba(48, 8, 58, 0.2);
+    z-index: 1001;
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: 0.8rem;
+    font-family: "Inconsolata", monospace;
+    top: 101%;
+    right: 0;
+}
+
+.theme-option {
+    color: var(--text-color);
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.theme-option:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Показываем выпадающий список при наведении */
+.theme-switcher:hover .theme-dropdown {
+    display: block;
+}
+
+[data-theme="default"] {
+    --background: #101114;
+    --primary-color: #1C1D20;
+    --secondary-color: #4A4D57;
+    --accent-color: #00FFC4;
+    --text-color: #F9F9F9;
+}
+
+[data-theme="yellow"] {
+    --background: #E9C46A;
+    --primary-color: #299D8F;
+    --secondary-color: #F4A261;
+    --accent-color: #E76F51;
+    --text-color: #FFF6E0;
+    --input-text: #274653;
+    --delete-button: #274653;
+}
+
+[data-theme="green"] {
+    --background: #A7C957;
+    --primary-color: #386641;
+    --secondary-color: #6A994E;
+    --accent-color: #F2E8CF;
+    --text-color: #FFF8E8;
+    --delete-button: #BC4749;
+}
+
+[data-theme="blue"] {
+    --background: #355070;
+    --primary-color: #E56B6F;
+    --secondary-color: #B56576;
+    --accent-color: #EAAC8B;
+    --text-color: #FFFFFF;
+    --delete-button: #6D597A;
+}
+
+[data-theme="pink"] {
+    --background: #EAAC8B;
+    --primary-color: #E56B6F;
+    --secondary-color: #6D597A;
+    --accent-color: #355070;
+    --text-color: #FFEBEC;
+    --delete-button: #B56576;
+}
+
