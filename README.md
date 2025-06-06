@@ -39,4 +39,4 @@ release-files/
 
 ## App Installation 
 - [On Mac](https://github.com/Lubimyjovos13/todo-electron-app/releases/tag/mac)
-- [On Windows]()
+- [On Windows](https://github.com/Lubimyjovos13/todo-electron-app/releases/tag/win)
