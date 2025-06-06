@@ -38,5 +38,5 @@ release-files/
 |<img width="342" alt="Снимок экрана 2025-06-06 в 16 21 05" src="https://github.com/user-attachments/assets/4ab5eaad-8894-4ced-8bac-a4098bc85a12" />|<img width="600" alt="Снимок экрана 2025-06-06 в 16 21 40" src="https://github.com/user-attachments/assets/3c14c163-42d5-4555-9920-e3acb88445b1" />|
 
 ## App Installation 
-- [On Mac]()
+- [On Mac](https://github.com/Lubimyjovos13/todo-electron-app/releases/tag/mac)
 - [On Windows]()
