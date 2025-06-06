@@ -17,7 +17,7 @@ A responsive todo application with theme customization options, built following 
 This project was implemented following Coding2GO [JavaScript Tutorial](https://www.youtube.com/watch?v=THEKW1gITJI). Major thanks to the instructor for the excellent learning resource!
 
 ## Project Structure
-`
+```
 release-files/  
 ├── index.html # Main application markup    
 ├── main.js # window application logic    
@@ -25,7 +25,7 @@ release-files/
 ├── app.js # Core application logic    
 ├── build/ # icons for application    
 ├── icons/ # SVG icons    
-`
+```
 
 ## Screenshots
 
